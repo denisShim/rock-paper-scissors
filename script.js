@@ -57,9 +57,6 @@ function game(){
     playRound(playerSelection, computerSelection);
     playerInput.value = '';
 
-    console.log(computerCount + " - comp");
-    console.log(playerCount + " - you")
-
     if(playerCount === 5){
         outPut.textContent = "You WIN this game with score " + playerCount + " - " + computerCount;
         playerCount = 0;
