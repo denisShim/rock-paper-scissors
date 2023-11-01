@@ -1,8 +1,12 @@
-const playerInput = document.getElementById('playerInput');
-const button = document.querySelector('#button');
+// const playerInput = document.getElementById('playerInput');
+// const button = document.querySelector('#button');
 const outPut = document.querySelector('#messege');
 const playerTurn = document.querySelector('.playerChoice');
 const computerTurn = document.querySelector('.computerChoice');
+const playerScore = document.querySelector('.player_score');
+const computerScore = document.querySelector('.computer_score');
+
+let buttons = document.querySelectorAll('button');
 
 let playerCount = 0;
 let computerCount = 0;
@@ -47,15 +51,19 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
+function game(playerSelection){
     let computerSelection = getComputerChoice();
-    let playerSelection = playerInput.value.toLowerCase();
+    // let playerSelection = playerInput.value.toLowerCase();
+    // let playerSelection = '';
+
     
     playerTurn.textContent = "Your turn - " + playerSelection;
     computerTurn.textContent = "Computer turn - " + computerSelection;
     
     playRound(playerSelection, computerSelection);
-    playerInput.value = '';
+    // playerInput.value = '';
+    playerScore.textContent = `Player count is: ${playerCount}`;
+    computerScore.textContent = `Computer count is: ${computerCount}`;
 
     if(playerCount === 5){
         outPut.textContent = "You WIN this game with score " + playerCount + " - " + computerCount;
@@ -68,4 +76,8 @@ function game(){
     }
 }
 
-button.addEventListener('click', game);
+buttons.forEach(button => {
+    button.addEventListener('click', function(){
+        game(button.value);
+    });
+})
