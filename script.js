@@ -1,5 +1,3 @@
-// const playerInput = document.getElementById('playerInput');
-// const button = document.querySelector('#button');
 const outPut = document.querySelector('#messege');
 const playerTurn = document.querySelector('.playerChoice');
 const computerTurn = document.querySelector('.computerChoice');
@@ -53,15 +51,11 @@ function playRound(playerSelection, computerSelection){
 
 function game(playerSelection){
     let computerSelection = getComputerChoice();
-    // let playerSelection = playerInput.value.toLowerCase();
-    // let playerSelection = '';
-
     
     playerTurn.textContent = "Your turn - " + playerSelection;
     computerTurn.textContent = "Computer turn - " + computerSelection;
     
     playRound(playerSelection, computerSelection);
-    // playerInput.value = '';
     playerScore.textContent = `Player count is: ${playerCount}`;
     computerScore.textContent = `Computer count is: ${computerCount}`;
 
